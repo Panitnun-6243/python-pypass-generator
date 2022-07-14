@@ -11,7 +11,7 @@ nr_numbers = int(input(f"How many numbers would you like?\n"))
 
 #Eazy Level - Order not randomised:
 #e.g. 4 letter, 2 symbol, 2 number = JduE&!91
-
+#random password from specific number
 password = ''
 for i in range(0, nr_letters):
   random_letter = random.randint(0, 51)
@@ -24,7 +24,16 @@ for i in range(0, nr_symbols):
 for i in range(0, nr_numbers):
   random_num = random.randint(0, 9)
   password += numbers[random_num]
-print(password)
+
 
 #Hard Level - Order of characters randomised:
 #e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
+final_password = ''
+#change password to list before sample
+password_to_list = list(password)
+#sample password list
+password_randomised = random.sample(password_to_list, len(password_to_list))
+#Make sample password list to string
+for i in range(0, len(password_randomised)):
+  final_password += password_randomised[i]
+print(final_password)
